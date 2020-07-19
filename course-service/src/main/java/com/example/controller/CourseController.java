@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
+@CrossOrigin(origins = {"http://54.214.120.99:3000"})
 public class CourseController {
 //api for enrolling user
 	@GetMapping("getAwsCourseSyllabus")
