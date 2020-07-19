@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-microservice-course
+  labels:
+    app: springboot-microservice-course
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-microservice-course
+  template:
+    metadata:
+      labels:
+        app: springboot-microservice-course
+    spec:
+      containers:
+      - name: course-service
+        image: vamsitechtuts/courseservice:latest
+        ports:
+        - containerPort: 9092
+        livenessProbe:
+          httpGet:
+            path: /getAwsCourseSyllabus
+            port: 9092
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /getAwsCourseSyllabus
+            port: 9092
+          initialDelaySeconds: 3
+          periodSeconds: 3

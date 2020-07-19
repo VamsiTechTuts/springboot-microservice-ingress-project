@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-microservice-user
+  labels:
+    app: springboot-microservice-user
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-microservice-user
+  template:
+    metadata:
+      labels:
+        app: springboot-microservice-user
+    spec:
+      containers:
+      - name: course-service
+        image: vamsitechtuts/userservice:latest
+        ports:
+        - containerPort: 9091
+        livenessProbe:
+          httpGet:
+            path: /getAllUsers
+            port: 9091
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /getAllUsers
+            port: 9091
+          initialDelaySeconds: 3
+          periodSeconds: 3

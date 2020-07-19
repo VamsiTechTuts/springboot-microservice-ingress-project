@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: springboot-microservice-user-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: springboot-microservice-user
+  ports:
+  - name: http
+    protocol: TCP
+    port: 9091
+    targetPort: 9091
