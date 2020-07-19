@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.User;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@CrossOrigin(origins = {"http://54.214.120.99:3000"})
 
 @RestController
 public class UserController {

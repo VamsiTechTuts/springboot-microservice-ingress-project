@@ -29,3 +29,15 @@ spec:
         backend:
           serviceName: springboot-microservice-user-svc
           servicePort: 9091
+      - path: /getAwsCourseSyllabus
+        backend:
+          serviceName: springboot-microservice-course-svc
+          servicePort: 9092
+      - path: /getDevopsCourseSyllabus
+        backend:
+          serviceName: springboot-microservice-course-svc
+          servicePort: 9092
+      - path: /enrollForCourse
+        backend:
+          serviceName: springboot-microservice-registration-svc
+          servicePort: 9093
